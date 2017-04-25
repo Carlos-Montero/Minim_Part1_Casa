@@ -1,38 +1,25 @@
 package edu.upc.dsa;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import static org.junit.Assert.assertEquals;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
+public class AppTest {
+
+    @org.junit.Test
+    public void createEtakemonTest() {
+        Etakemon e = new Etakemon("carlos",15);
+        assertEquals("carlos", e.getName());
+        assertEquals(15, e.getLevel());
     }
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
+
+    @org.junit.Test
+    public void createUserTest() {
+        User u = new User("xavi","xavi@xavi.com","123");
+        assertEquals("xavi", u.getUsername());
+        assertEquals("xavi@xavi.com", u.getMail());
+        assertEquals("123", u.getPassword());
     }
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
-    }
+
+
 }

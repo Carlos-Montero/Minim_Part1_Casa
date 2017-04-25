@@ -1,3 +1,5 @@
+package edu.upc.dsa;
+
 import java.util.List;
 import java.util.Map;
 
@@ -14,8 +16,8 @@ public boolean modifyUser (User u);
 
 public User infoUser (String username);
 
-public List<Object> infoUserObject (String username);
+public List<Etakemon> infoUserObject (String username);
 
-public boolean addUserObject (User u, Object o);
+public boolean addUserObject (User u, String name, int level);
 
 }

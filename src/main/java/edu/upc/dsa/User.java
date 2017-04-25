@@ -1,3 +1,5 @@
+package edu.upc.dsa;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,16 +10,14 @@ public class User {
     private String username;
     private String mail;
     private String password;
-    public List<Object> list = new ArrayList<Object>();
+    public List<Etakemon> list = new ArrayList<Etakemon>();
 
 
-    public User(String username, String mail, String password){}
-
-    public User (String username, String mail, String passwordhash, String salt, List<Object> list){
+    public User (String username, String mail, String password){
         this.username = username;
         this.mail = mail;
         this.password = password;
-        this.list = list;
+        this.list = new ArrayList<Etakemon>();
     }
 
     public String getUsername() {
@@ -44,7 +44,7 @@ public class User {
         this.password = password;
     }
 
-    public void setList (List<Object> list){this.list=list;}
+    public void setList (List<Etakemon> list){this.list=list;}
 
     public List getList(){return this.list;}
 

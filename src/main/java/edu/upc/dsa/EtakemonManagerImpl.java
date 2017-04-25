@@ -1,9 +1,9 @@
+package edu.upc.dsa;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.LogManager;
-import java.util.logging.Logger;
 
 /**
  * Created by Carlos on 21/04/2017.
@@ -14,7 +14,6 @@ public class EtakemonManagerImpl implements EtakemonManager {
     private static EtakemonManagerImpl ourInstance = new EtakemonManagerImpl();
     private Map<String,User> usermap;
     private ArrayList<Object> objectList;
-    private static final Logger LOGGER = LogManager.getLogger(EtakemonManagerImpl.class);
 
     public static EtakemonManagerImpl getInstance() {
         return ourInstance;
@@ -39,7 +38,7 @@ public class EtakemonManagerImpl implements EtakemonManager {
             return true;
         }
         else{
-            Logger.info("User aldready exists");
+            Logger.info("edu.upc.dsa.User aldready exists");
             return false;
         }
     }
@@ -67,7 +66,7 @@ public class EtakemonManagerImpl implements EtakemonManager {
         }
     }
 
-    public List<Object> infoUserObject (String username){
+    public List<Etakemon> infoUserObject (String username){
         User u = usermap.get(username);
         if (u != null){
             return u.getList();
@@ -77,14 +76,15 @@ public class EtakemonManagerImpl implements EtakemonManager {
         }
     }
 
-    public boolean addUserObject(User u, Object o) {
-        User res = this.usermap.putIfAbsent(u.getUsername(),u);
+    public boolean addUserObject(User u,String name, int level) {
+        Etakemon e = new Etakemon (name, level);
+        User res = this.usermap.get(u.getUsername());
         if (res==null) {
             Logger.info("This user don't exists");
             return false;
         }
         else{
-            u.getList().add(Object o);
+            u.getList().add(e);
             usermap.put(u.getUsername(), u);
             Logger.info("Object added");
             return true;
